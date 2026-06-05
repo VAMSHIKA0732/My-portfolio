@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMatch | Premium Movie Recommendations</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <header class="navbar">
+        <div class="logo">
+            <span class="highlight">Cine</span>Match
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Discover</a></li>
+                <li><a href="#">Top Rated</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero-section">
+            <h1>Find Your Next <span class="highlight">Masterpiece</span></h1>
+            <p>Select a movie you love, and our smart engine will recommend what to watch next based on genre chemistry.</p>
+            
+            <div class="search-container">
+                <input type="text" id="movie-search" placeholder="Search for a movie (e.g. Inception)..." autocomplete="off">
+                <ul id="search-results" class="dropdown hidden"></ul>
+            </div>
+        </section>
+
+        <section id="selected-movie-section" class="hidden fade-in">
+            <h2 class="section-title">Selected Movie</h2>
+            <div id="selected-movie-card" class="movie-card showcase">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <section id="recommendations-section" class="hidden fade-in">
+            <h2 class="section-title">You Might Also Like</h2>
+            <div id="recommendations-grid" class="movies-grid">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <section id="all-movies-section" class="fade-in">
+            <h2 class="section-title">Popular Movies</h2>
+            <div id="all-movies-grid" class="movies-grid">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 CineMatch. Powered by dynamic JS.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignments - College LMS</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>College LMS</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="courses.html" class="nav-link">Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a href="assignments.html" class="nav-link active">Assignments</a>
+                </li>
+                <li class="nav-item">
+                    <a href="grades.html" class="nav-link">Grades</a>
+                </li>
+                <li class="nav-item">
+                    <a href="profile.html" class="nav-link">Profile</a>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Assignments Section -->
+    <section class="assignments-section">
+        <div class="container">
+            <div class="section-header">
+                <h1>My Assignments</h1>
+                <div class="section-actions">
+                    <div class="filter-buttons">
+                        <button class="btn btn-outline active" onclick="filterAssignments('all')">All</button>
+                        <button class="btn btn-outline" onclick="filterAssignments('pending')">Pending</button>
+                        <button class="btn btn-outline" onclick="filterAssignments('completed')">Completed</button>
+                        <button class="btn btn-outline" onclick="filterAssignments('overdue')">Overdue</button>
+                    </div>
+                    <button class="btn btn-primary" onclick="showAddAssignmentModal()">
+                        <i class="fas fa-plus"></i> Add Assignment
+                    </button>
+                </div>
+            </div>
+
+            <div class="assignments-grid" id="assignmentsGrid">
+                <!-- Assignments will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Add Assignment Modal -->
+    <div id="addAssignmentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addAssignmentModal')">&times;</span>
+            <h2>Add New Assignment</h2>
+            <form id="addAssignmentForm">
+                <div class="form-group">
+                    <label for="assignmentTitle">Assignment Title:</label>
+                    <input type="text" id="assignmentTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="assignmentCourse">Course:</label>
+                    <select id="assignmentCourse" required>
+                        <option value="">Select Course</option>
+                        <!-- Options will be populated by JavaScript -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="assignmentDescription">Description:</label>
+                    <textarea id="assignmentDescription" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="assignmentPoints">Points:</label>
+                    <input type="number" id="assignmentPoints" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="assignmentDueDate">Due Date:</label>
+                    <input type="datetime-local" id="assignmentDueDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="assignmentType">Type:</label>
+                    <select id="assignmentType">
+                        <option value="homework">Homework</option>
+                        <option value="project">Project</option>
+                        <option value="quiz">Quiz</option>
+                        <option value="exam">Exam</option>
+                        <option value="essay">Essay</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Assignment</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Assignment Details Modal -->
+    <div id="assignmentDetailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('assignmentDetailsModal')">&times;</span>
+            <div id="assignmentDetailsContent">
+                <!-- Assignment details will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Submit Assignment Modal -->
+    <div id="submitAssignmentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('submitAssignmentModal')">&times;</span>
+            <h2>Submit Assignment</h2>
+            <form id="submitAssignmentForm">
+                <div class="form-group">
+                    <label for="submissionText">Submission Text:</label>
+                    <textarea id="submissionText" rows="6" placeholder="Enter your assignment submission here..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="submissionFile">Upload File (Optional):</label>
+                    <input type="file" id="submissionFile" accept=".pdf,.doc,.docx,.txt">
+                </div>
+                <div class="form-group">
+                    <label for="submissionNotes">Additional Notes:</label>
+                    <textarea id="submissionNotes" rows="3" placeholder="Any additional notes for the instructor..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Assignment</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/assignments.js"></script>
+</body>
+</html>

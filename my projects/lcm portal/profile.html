@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - College LMS</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>College LMS</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="courses.html" class="nav-link">Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a href="assignments.html" class="nav-link">Assignments</a>
+                </li>
+                <li class="nav-item">
+                    <a href="grades.html" class="nav-link">Grades</a>
+                </li>
+                <li class="nav-item">
+                    <a href="profile.html" class="nav-link active">Profile</a>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+        <div class="container">
+            <div class="profile-header">
+                <h1>My Profile</h1>
+                <button class="btn btn-outline" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+
+            <div class="profile-content">
+                <div class="profile-sidebar">
+                    <div class="profile-card">
+                        <div class="profile-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="profile-info">
+                            <h3 id="profileName">User Name</h3>
+                            <p id="profileEmail">user@example.com</p>
+                            <p id="profileType">Student</p>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4 id="enrolledCourses">0</h4>
+                                <p>Enrolled Courses</p>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4 id="completedAssignments">0</h4>
+                                <p>Completed Assignments</p>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4 id="overallGPA">0.0</h4>
+                                <p>Overall GPA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-main">
+                    <div class="profile-tabs">
+                        <button class="tab-button active" onclick="showTab('personal')">Personal Info</button>
+                        <button class="tab-button" onclick="showTab('academic')">Academic</button>
+                        <button class="tab-button" onclick="showTab('settings')">Settings</button>
+                    </div>
+
+                    <!-- Personal Information Tab -->
+                    <div id="personal-tab" class="tab-content active">
+                        <div class="profile-form">
+                            <h2>Personal Information</h2>
+                            <form id="personalInfoForm">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="firstName">First Name:</label>
+                                        <input type="text" id="firstName" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName">Last Name:</label>
+                                        <input type="text" id="lastName" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="email" id="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone:</label>
+                                    <input type="tel" id="phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="dateOfBirth">Date of Birth:</label>
+                                    <input type="date" id="dateOfBirth">
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Address:</label>
+                                    <textarea id="address" rows="3"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Update Information</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Academic Information Tab -->
+                    <div id="academic-tab" class="tab-content">
+                        <div class="academic-info">
+                            <h2>Academic Information</h2>
+                            <div class="academic-details">
+                                <div class="detail-section">
+                                    <h3>Current Courses</h3>
+                                    <div id="currentCourses" class="courses-list">
+                                        <!-- Current courses will be populated by JavaScript -->
+                                    </div>
+                                </div>
+                                
+                                <div class="detail-section">
+                                    <h3>Academic Progress</h3>
+                                    <div class="progress-stats">
+                                        <div class="progress-item">
+                                            <span>Overall GPA</span>
+                                            <div class="progress-bar">
+                                                <div class="progress-fill" style="width: 80%"></div>
+                                            </div>
+                                            <span>3.2</span>
+                                        </div>
+                                        <div class="progress-item">
+                                            <span>Credits Completed</span>
+                                            <div class="progress-bar">
+                                                <div class="progress-fill" style="width: 60%"></div>
+                                            </div>
+                                            <span>45/120</span>
+                                        </div>
+                                        <div class="progress-item">
+                                            <span>Assignments Completed</span>
+                                            <div class="progress-bar">
+                                                <div class="progress-fill" style="width: 75%"></div>
+                                            </div>
+                                            <span>12/16</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Settings Tab -->
+                    <div id="settings-tab" class="tab-content">
+                        <div class="settings-info">
+                            <h2>Account Settings</h2>
+                            <div class="settings-sections">
+                                <div class="settings-section">
+                                    <h3>Change Password</h3>
+                                    <form id="changePasswordForm">
+                                        <div class="form-group">
+                                            <label for="currentPassword">Current Password:</label>
+                                            <input type="password" id="currentPassword" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="newPassword">New Password:</label>
+                                            <input type="password" id="newPassword" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="confirmPassword">Confirm New Password:</label>
+                                            <input type="password" id="confirmPassword" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Change Password</button>
+                                    </form>
+                                </div>
+
+                                <div class="settings-section">
+                                    <h3>Notification Preferences</h3>
+                                    <div class="notification-settings">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="emailNotifications" checked>
+                                            <span class="checkmark"></span>
+                                            Email notifications for assignments
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="gradeNotifications" checked>
+                                            <span class="checkmark"></span>
+                                            Email notifications for grades
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="courseNotifications">
+                                            <span class="checkmark"></span>
+                                            Email notifications for course updates
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="settings-section">
+                                    <h3>Privacy Settings</h3>
+                                    <div class="privacy-settings">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="profileVisibility" checked>
+                                            <span class="checkmark"></span>
+                                            Make profile visible to other students
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="gradeVisibility" checked>
+                                            <span class="checkmark"></span>
+                                            Allow instructors to view my grades
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

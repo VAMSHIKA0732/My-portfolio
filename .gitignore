@@ -1,0 +1,6 @@
+node_modules/
+.DS_Store
+*.log
+.git/
+# Ignore the nested .git from myProfile
+myProfile/.git/

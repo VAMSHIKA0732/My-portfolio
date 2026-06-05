@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grades - College LMS</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>College LMS</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="courses.html" class="nav-link">Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a href="assignments.html" class="nav-link">Assignments</a>
+                </li>
+                <li class="nav-item">
+                    <a href="grades.html" class="nav-link active">Grades</a>
+                </li>
+                <li class="nav-item">
+                    <a href="profile.html" class="nav-link">Profile</a>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Grades Section -->
+    <section class="grades-section">
+        <div class="container">
+            <div class="section-header">
+                <h1>My Grades</h1>
+                <div class="section-actions">
+                    <div class="filter-buttons">
+                        <button class="btn btn-outline active" onclick="filterGrades('all')">All Courses</button>
+                        <button class="btn btn-outline" onclick="filterGrades('CS101')">CS101</button>
+                        <button class="btn btn-outline" onclick="filterGrades('CS201')">CS201</button>
+                        <button class="btn btn-outline" onclick="filterGrades('CS301')">CS301</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grade Summary -->
+            <div class="grade-summary">
+                <div class="summary-cards">
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h3 id="overallGPA">3.2</h3>
+                            <p>Overall GPA</p>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h3 id="totalPoints">1,250</h3>
+                            <p>Total Points</p>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h3 id="averageGrade">85%</h3>
+                            <p>Average Grade</p>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h3 id="completedAssignments">12</h3>
+                            <p>Completed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Grades -->
+            <div class="course-grades" id="courseGrades">
+                <!-- Course grades will be populated by JavaScript -->
+            </div>
+
+            <!-- Grade History -->
+            <div class="grade-history">
+                <h2>Grade History</h2>
+                <div class="grades-table-container">
+                    <table class="grades-table">
+                        <thead>
+                            <tr>
+                                <th>Course</th>
+                                <th>Assignment</th>
+                                <th>Points</th>
+                                <th>Grade</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="gradesTableBody">
+                            <!-- Grades will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grade Details Modal -->
+    <div id="gradeDetailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('gradeDetailsModal')">&times;</span>
+            <div id="gradeDetailsContent">
+                <!-- Grade details will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/grades.js"></script>
+</body>
+</html>
